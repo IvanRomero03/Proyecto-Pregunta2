@@ -5,3 +5,5 @@ import tkinter as tk
 #main loop
 
 print("Prueba")
+print('hola')
+
