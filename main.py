@@ -1,6 +1,5 @@
 import tkinter as tk
 import tkinter_renderers as tkrd
-import lorddanlib as ldl
 
 #reads archivos y declaraciones
 win = tk.Tk()
