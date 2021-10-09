@@ -5,7 +5,6 @@ def is_pow_of(number, root):
     elif transform < 1:
         return False
     else:
-        print("Recursing: " + str(transform))
         return is_pow_of(transform, root)
 
 def parse_string_to_list(string_to_sort):
@@ -16,6 +15,7 @@ def parse_string_to_list(string_to_sort):
     space_place = [tam_array]
     raw_words_arr = []
     final_words_arr = []
+
     if " " in arr:
         for curr_pos in range(tam_array):
             if arr[curr_pos] == " ":
