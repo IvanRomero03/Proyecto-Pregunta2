@@ -11,8 +11,7 @@ mf.columnconfigure((0, 1), weight=1)
 mf.rowconfigure((0, 1), weight=1)
 
 #main loop
-#Ivan, cambia el indice en frame_call pa que se vean las distintas pantallas
-
 tkrd.frame_call(0, mf)
 mf.mainloop()
+
 print("Fin render")

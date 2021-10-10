@@ -24,7 +24,6 @@ def do_game(win):
     win.rowconfigure((1, 2, 3, 4, 5), weight=1)
 
     numpr = 1
-
     dict_str = "Pregunta " + str(numpr)
     preg_src = p_str(wd[dict_str], "$")
 
@@ -39,7 +38,6 @@ def do_game(win):
                      fg="#FF0000", command=lambda: win.destroy(), bg=btbgcol)
     but2.grid(column=2, row=5)
 
-
 def do_credits(win):
 
     win.columnconfigure((0, 2), weight=1)
@@ -49,13 +47,11 @@ def do_credits(win):
 
     namelbl = tk.Label(win, text=wd["nombres"],
                        font=("Copperplate", 15), bg=bgcol)
-
     namelbl.grid(row=1, column=1)
 
     ret_but = tk.Button(win, text="Regresar al menu", font=('Helvetica bold', 20),
                         bg=btbgcol, command=lambda: frame_call(0, win))
     ret_but.grid(row=2, column=1)
-
 
 def do_menu(win):
 
