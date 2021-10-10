@@ -1,42 +1,34 @@
 import tkinter as tk
 import tkinter_renderers as tkrd
 
-#reads archivos y declaraciones
+#init y config del mainframe
 win = tk.Tk()
 win.geometry("600x600")
-win.config(bg="#7BD09E")
+win.title("Pregunta2")
+win.resizable(0, 0)
+win.config(bg=tkrd.bgcol)
+win.columnconfigure(0, weight=1)
+win.rowconfigure(0, weight=1)
 
-#funciones
-def juego():
-    on_game = True
-    while on_game:
-        print("ongame")
-        a = int(input())
-        if a == 2:
-            on_game = not on_game
-        print("")
+#Array de frames
+fr_game = tkrd.do_game(win)
+fr_credits = tkrd.do_credits(win)
+fr_menu = tkrd.do_menu(win)
+frames = [fr_game, fr_credits, fr_menu]
 
-def sw_fr1():
-    for ele in win.winfo_children():
-        ele.destroy()
-    f1 = tkrd.do_menu(win)
-    f1.pack()
-    
-def sw_fr2():
-    for ele in win.winfo_children():
-        ele.destroy()
-    f2 = tkrd.do_game(win)
-    f2.pack()
-
-but = tk.Button(win, text="F1", font=('Helvetica bold',40), fg="#FF0000", command=sw_fr1)
-but.pack()
-
-but2 = tk.Button(win, text="F2", font=('Helvetica bold',40), fg="#FF0000", command=sw_fr2)
-but2.pack()
-
-#call_renderers
-sw = 0
+def frame_call(frame_index):
+    for i in range(len(frames)):
+        if i == frame_index:
+            frames[i].grid()
+        else:
+            ele_list = frames[i].winfo_children()
+            for x in range(len(ele_list)):
+                ele_list[x].grid_forget()
 
 #main loop
+
+#Ivan, cambia el indice en frame_call pa que se vean las distintas pantallas
+
+frame_call(0)
 win.mainloop()
 print("Fin render")
