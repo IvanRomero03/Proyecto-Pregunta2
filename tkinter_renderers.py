@@ -1,9 +1,35 @@
 import tkinter as tk
 from str_src import wd
+#import random
+from tkinter import ttk
 from lorddanlib import parse_string_to_list as p_str
+
 
 bgcol = "#7BD09E"
 btbgcol = "#6BC08E"
+
+it = 1
+
+class Respuesta:
+    def __init__(self, win, is_correct):
+        self.button = tk.Button(win, command=self.do_check)
+        self.value = is_correct
+
+    def do_check(self):
+        if self.value:
+            self.button.config(bg="#00FF00")
+        else:
+            self.button.config(bg="#FF0000")
+
+class Progreso:
+    def __init__(self, win):
+        self.bar = ttk.Progressbar(win, orient="horizontal", mode="determinate")
+        self.countt = 1
+
+    def do_it(self, win):
+        self.countt = self.countt + 1
+        game_upt(win, self)
+
 
 def frame_call(frame_index, win):
     ele_list = win.winfo_children()
@@ -17,26 +43,44 @@ def frame_call(frame_index, win):
     elif frame_index == 2:
         do_credits(win)
 
+def game_upt(win, pgrs):
+
+    ele_list = win.winfo_children()
+    for x in range(len(ele_list)):
+        ele_list[x].grid_forget()
+
+    dict_str = "Pregunta " + str(pgrs.countt)
+    preg_src = p_str(wd[dict_str], "&")
+    preglbl = tk.Label(win, text=preg_src[0], font=('Helvetica bold', 30), bg=bgcol)
+    preglbl.grid(column=0, row=0, columnspan=3)
+
+    for i in range(4):
+        if "*" in preg_src[i + 1]:
+            vbut = Respuesta(win, True)
+            preg_src[i + 1] = preg_src[i + 1].replace("*", " ").strip()
+            vbut.button.config(text=preg_src[i + 1], font=('Helvetica bold', 20), bg=btbgcol)
+            vbut.button.grid(column=0, row=i + 1, columnspan=3)
+        else:
+            vbut = Respuesta(win, False)
+            vbut.button.config(text=preg_src[i + 1], font=('Helvetica bold', 20), bg=btbgcol)
+            vbut.button.grid(column=0, row=i + 1, columnspan=3)
+
+    but_next = tk.Button(win, text="Siguiente", font=('Helvetica bold', 20),
+                         fg="#FF0000", command=lambda: pgrs.do_it(win), bg=btbgcol)
+    but_next.grid(column=0, row=5)
+
+    but_sal = tk.Button(win, text="Salir", font=('Helvetica bold', 20),
+                        fg="#FF0000", command=lambda: win.destroy(), bg=btbgcol)
+    but_sal.grid(column=2, row=5)
+
 def do_game(win):
 
     win.columnconfigure((0, 1, 2), weight=1)
     win.rowconfigure(0, weight=2)
     win.rowconfigure((1, 2, 3, 4, 5), weight=1)
 
-    numpr = 1
-    dict_str = "Pregunta " + str(numpr)
-    preg_src = p_str(wd[dict_str], "$")
-
-    preglbl = tk.Label(win, text=preg_src[0], font=('Helvetica bold', 30), bg=bgcol)
-    preglbl.grid(column=0, row=0, columnspan=3)
-
-    for i in range(4):
-        vbut = tk.Button(win, text=preg_src[i + 1], font=('Helvetica bold', 20), bg=btbgcol)
-        vbut.grid(column=0, row=i + 1, columnspan=3)
-
-    but2 = tk.Button(win, text="Salir", font=('Helvetica bold', 20),
-                     fg="#FF0000", command=lambda: win.destroy(), bg=btbgcol)
-    but2.grid(column=2, row=5)
+    pgrss = Progreso(win)
+    game_upt(win, pgrss)
 
 def do_credits(win):
 

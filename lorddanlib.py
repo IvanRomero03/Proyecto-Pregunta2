@@ -7,6 +7,7 @@ def is_pow_of(number, root):
         return False
     else:
         return is_pow_of(transform, root)
+
 def parse_string_to_list(string_to_sort, sequence):
 
     arr = string_to_sort.strip()
@@ -29,3 +30,10 @@ def parse_string_to_list(string_to_sort, sequence):
             substr = raw_words_arr[pal_actual].replace(raw_words_arr[pal_actual-1], "").replace(sequence, "").strip()
             final_words_arr.append(substr)
     return final_words_arr
+
+def breakdown(string_to_break, seq_array):
+    final_array = string_to_break
+    for n in range(len(seq_array)):
+        for m in range(len(final_array)):
+            final_array = parse_string_to_list(final_array[m], seq_array[n])
+    return final_array
