@@ -10,7 +10,6 @@ wd = {
                   "Nuevo León &"
                   "Ciudad de México * &"
                   "Guadalajara",
-
     "Pregunta 2": "¿Cuánto es 10 x 5 % 25?&"
                   "5 &"
                   "2 *&"
@@ -22,9 +21,9 @@ wd = {
                   "Ciudad de México * &"
                   "Guadalajara",
     "Pregunta 4": "¿Cuánto es 10 x 5 % 25?&"
-                  "5 &"
-                  "50 &"
                   "2 * &"
+                  "50 &"
+                  "5 &"
                   "25 ",
 
 
