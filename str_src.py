@@ -17,8 +17,8 @@ wd = {
                   "25 ",
     "Pregunta 3": "¿Cual es la capital de México?&"
                   "Jalisco &"
-                  "Nuevo León &"
-                  "Ciudad de México * &"
+                  "Nuevo León * &"
+                  "Ciudad de México &"
                   "Guadalajara",
     "Pregunta 4": "¿Cuánto es 10 x 5 % 25?&"
                   "2 * &"
