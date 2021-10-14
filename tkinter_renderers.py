@@ -4,21 +4,32 @@ import random
 from tkinter import ttk
 from lorddanlib import parse_string_to_list as p_str
 
-
 bgcol = "#7BD09E"
 # bgcol = "#D07B9E"
 # btbgcol = "#C06B8E"
 btbgcol = "#6BC08E"
 
+bord = False
+full = False
 it = 1
 
+def window_mode(win, key):
+    global bord
+    global full
+    if key == 1:
+        bord = not bord
+        win.overrideredirect(bord)
+    elif key == 2:
+        full = not full
+        win.attributes("-fullscreen", full)
 
 class Respuesta:
-    def change_value(self, Hola):
-        self.value = Hola
+    def change_value(self, hola):
+        self.value = hola
 
     def __init__(self, win):
         self.button = tk.Button(win)
+        self.value = True
 
     def do_check(self, win, pgrs, nextbut):
         if self.value:
@@ -54,6 +65,8 @@ def frame_call(frame_index, win):
         do_game(win)
     elif frame_index == 2:
         do_credits(win)
+    elif frame_index == 3:
+        do_config(win)
 
 
 def game_upt(win, pgrs):
@@ -92,6 +105,7 @@ def game_upt(win, pgrs):
     boton4.button.config(text=dict_src[3], font=(
         'Helvetica bold', 20), bg=btbgcol, command=lambda: boton4.do_check(win, pgrs, but_next))
     botones = (boton1, boton2, boton3, boton4)
+
     for i in range(4):
         if "*" in dict_src[i]:
             botones[i].change_value(True)
@@ -147,6 +161,29 @@ def do_menu(win):
                          bg=btbgcol, command=lambda: frame_call(2, win))
     cred_but.grid(column=0, row=3, sticky=tk.N, columnspan=3)
 
-    but2 = tk.Button(win, text="Salir", font=('Helvetica bold', 20),
-                     fg="#FF0000", command=lambda: win.destroy(), bg=btbgcol)
-    but2.grid(column=2, row=4)
+    but_end = tk.Button(win, text="Salir", font=('Helvetica bold', 20),
+                        fg="#FF0000", command=lambda: win.destroy(), bg=btbgcol)
+    but_end.grid(column=2, row=4)
+
+    but_conf = tk.Button(win, text="Config", font=('Helvetica bold', 20),
+                         command=lambda: frame_call(3, win), bg=btbgcol)
+    but_conf.grid(column=0, row=4)
+
+def do_config(win):
+
+    win.columnconfigure((0, 2), weight=1)
+    win.columnconfigure(1, weight=1)
+    win.rowconfigure((0, 2, 3), weight=1)
+    win.rowconfigure(1, weight=1)
+
+    bord_but = tk.Button(win, text="Ventana sin bordes", font=("Copperplate", 15), bg=btbgcol,
+                        command=lambda: window_mode(win, 1))
+    bord_but.grid(row=1, column=1)
+
+    full_but = tk.Button(win, text="Pantalla completa", font=("Copperplate", 15), bg=btbgcol,
+                        command=lambda: window_mode(win, 2))
+    full_but.grid(row=2, column=1)
+
+    ret_but = tk.Button(win, text="Regresar al menu", font=('Helvetica bold', 20),
+                        bg=btbgcol, command=lambda: frame_call(0, win))
+    ret_but.grid(row=4, column=1)
