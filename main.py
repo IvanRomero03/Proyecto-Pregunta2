@@ -3,7 +3,7 @@ import tkinter_renderers as tkrd
 
 #init y config del mainframe
 mf = tk.Tk()
-mf.geometry("600x600")
+mf.geometry("1000x600")
 mf.title("Pregunta2")
 mf.resizable(0, 0)
 mf.config(bg=tkrd.bgcol)
