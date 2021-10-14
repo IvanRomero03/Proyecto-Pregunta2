@@ -4,10 +4,11 @@ import random
 from tkinter import ttk
 from lorddanlib import parse_string_to_list as p_str
 
-bgcol = "#7BD09E"
-# bgcol = "#D07B9E"
-# btbgcol = "#C06B8E"
-btbgcol = "#6BC08E"
+
+bgcol = "#ce03fc"
+btbgcol = "#fc8003"
+#btbgcol = "#6BC08E"
+#bgcol = "#7BD09E"
 
 bord = False
 full = False
@@ -33,10 +34,10 @@ class Respuesta:
 
     def do_check(self, win, pgrs, nextbut):
         if self.value:
-            self.button.config(bg="#00FF00")
+            self.button.config(bg="#00BF00")
             print("c_corr")
         else:
-            self.button.config(bg="#FF0000")
+            self.button.config(bg="#BF0000")
             print("c_incorr")
         print("Unlock")
         nextbut.config(command=lambda: pgrs.do_it(win), bg=btbgcol)
@@ -180,9 +181,9 @@ def do_config(win):
                         command=lambda: window_mode(win, 1))
     bord_but.grid(row=1, column=1)
 
-    full_but = tk.Button(win, text="Pantalla completa", font=("Copperplate", 15), bg=btbgcol,
-                        command=lambda: window_mode(win, 2))
-    full_but.grid(row=2, column=1)
+    #full_but = tk.Button(win, text="Pantalla completa", font=("Copperplate", 15), bg=btbgcol,
+                        #command=lambda: window_mode(win, 2))
+    #full_but.grid(row=2, column=1)
 
     ret_but = tk.Button(win, text="Regresar al menu", font=('Helvetica bold', 20),
                         bg=btbgcol, command=lambda: frame_call(0, win))
