@@ -2,7 +2,7 @@
 
 Proyecto para la clase de Pensamiento computacional para la ingeniería. 
 Consiste en un juego interactivo para enseñar sobre tres areas de enseñanza distintas,
-todo a través del toolkit de GUI nativo de Python llamada Tkinter
+todo a través del toolkit de GUI nativo de Python llamado Tkinter
 
 Creado por: 
 
