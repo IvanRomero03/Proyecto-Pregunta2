@@ -41,7 +41,7 @@ def do_check(win, pgrs, nextbut, botones, value):
             print("c_incorr")
         print("Unlock")
     if value:
-        pgrs.bar.step(10)
+        pgrs.bar.step(100/15)
     nextbut.config(command=lambda: pgrs.do_it(win), bg=btbgcol)
 
 
@@ -70,6 +70,9 @@ def frame_call(frame_index, win):
         do_credits(win)
     elif frame_index == 3:
         do_config(win)
+    elif frame_index == 4:
+        # do_lesgo(win)
+        do_menu(win)
 
 
 def game_upt(win, pgrs):
@@ -80,47 +83,50 @@ def game_upt(win, pgrs):
         ele_list[x].grid_forget()
 
     dict_str = "Pregunta " + str(pgrs.countt)
-    dict_src = p_str(wd[dict_str], "&")
-    preglbl = tk.Label(win, text=dict_src[0], font=(
-        'Helvetica bold', 30), bg=bgcol)
-    preglbl.grid(column=0, row=0, columnspan=3)
-    del dict_src[0:1]
-    random.shuffle(dict_src)
+    if(dict_str == 'Pregunta 16'):
+        frame_call(4, win)
+    else:
+        dict_src = p_str(wd[dict_str], "&")
+        preglbl = tk.Label(win, text=dict_src[0], font=(
+            'Helvetica bold', 30), bg=bgcol)
+        preglbl.grid(column=0, row=0, columnspan=3)
+        del dict_src[0:1]
+        random.shuffle(dict_src)
 
-    but_next = tk.Button(win, text="Siguiente", font=('Helvetica bold', 20),
-                         fg="#FF0000", bg=bgcol)
-    but_next.grid(column=0, row=6)
+        but_next = tk.Button(win, text="Siguiente", font=('Helvetica bold', 20),
+                             fg="#FF0000", bg=bgcol)
+        but_next.grid(column=0, row=6)
 
-    but_sal = tk.Button(win, text="Salir", font=('Helvetica bold', 20),
-                        fg="#FF0000", command=lambda: win.destroy(), bg=btbgcol)
-    but_sal.grid(column=2, row=6)
+        but_sal = tk.Button(win, text="Salir", font=('Helvetica bold', 20),
+                            fg="#FF0000", command=lambda: win.destroy(), bg=btbgcol)
+        but_sal.grid(column=2, row=6)
 
-    botones = []
-    boton1 = Respuesta(win)
-    boton1.button.config(text=dict_src[0], font=(
-        'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton1.value))
-    boton2 = Respuesta(win)
-    boton2.button.config(text=dict_src[1], font=(
-        'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton2.value))
-    boton3 = Respuesta(win)
-    boton3.button.config(text=dict_src[2], font=(
-        'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton3.value))
-    boton4 = Respuesta(win)
-    boton4.button.config(text=dict_src[3], font=(
-        'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton4.value))
-    botones = [boton1, boton2, boton3, boton4]
+        botones = []
+        boton1 = Respuesta(win)
+        boton1.button.config(text=dict_src[0], font=(
+            'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton1.value))
+        boton2 = Respuesta(win)
+        boton2.button.config(text=dict_src[1], font=(
+            'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton2.value))
+        boton3 = Respuesta(win)
+        boton3.button.config(text=dict_src[2], font=(
+            'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton3.value))
+        boton4 = Respuesta(win)
+        boton4.button.config(text=dict_src[3], font=(
+            'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton4.value))
+        botones = [boton1, boton2, boton3, boton4]
 
-    pgrs.bar.grid(column=0, row=1, columnspan=3)
+        pgrs.bar.grid(column=0, row=1, columnspan=3)
 
-    for i in range(4):
-        if "*" in dict_src[i]:
-            botones[i].change_value(True)
-            botones[i].button.config(
-                text=dict_src[i].replace("*", " ").strip())
-            botones[i].button.grid(column=0, row=i + 2, columnspan=3)
-        else:
-            botones[i].change_value(False)
-            botones[i].button.grid(column=0, row=i + 2, columnspan=3)
+        for i in range(4):
+            if "*" in dict_src[i]:
+                botones[i].change_value(True)
+                botones[i].button.config(
+                    text=dict_src[i].replace("*", " ").strip())
+                botones[i].button.grid(column=0, row=i + 2, columnspan=3)
+            else:
+                botones[i].change_value(False)
+                botones[i].button.grid(column=0, row=i + 2, columnspan=3)
 
 
 def do_game(win):
