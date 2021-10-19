@@ -19,11 +19,11 @@ wd = {
                   "Instituir* &"
                   "Injusto &"
                   "Acertado",
-    "Pregunta 4": "¿Cuánto es 10 x 5 % 25?&"
-                  "2 * &"
-                  "50 &"
-                  "5 &"
-                  "25 ",
+    "Pregunta 4": "¿Cuántos huesos tiene el cuerpo humano de un adulto?&"
+                  "300 &"
+                  "206* &"
+                  "245 &"
+                  "302 &",
     "Pregunta 5": "Un libro es a un escritor lo que un disco es a un... &"
                   "reproductor &"
                   "celular &"
@@ -34,11 +34,11 @@ wd = {
                   "Miguel de Cervantes &"
                   "Carlos Fuentes &"
                   "William Shakespear *",
-    "Pregunta 7": "dsds &"
-                  "sdfjhbv &"
-                  "dshfb &"
-                  "hbdf *&"
-                  "uygasdd",
+    "Pregunta 7": "¿Cuánto es la raiz cuadrada de 9? &"
+                  "5 &"
+                  "4.2 &"
+                  "3 *&"
+                  "81",
     "Pregunta 8": "¿Cuánto es (2)x(3+4-5)=?&"
     "6 &"
     "4 *&"
@@ -56,9 +56,28 @@ wd = {
                    "uno *",
     "Pregunta 11": "Las palabras con R se escriben cuando... &"
                    "Al inicio de palabra aunque tenga mayor fuerza &"
-                   "Interior de la palabra, siempre precedida de consonante &"
+                   "Interior de la palabra, siempre que vaya precedida de consonante &"
                    "En general el sonido fuerte se escribe con rr y el suave con r *&"
-                   "En general el sonido fuerte se escribe con rr con r",
+                   "Al inicio de palabra aunque tenga mayor fuerzaSi evaporas el aguan general el sonido fuerte se escribe con rr con r",
+    "Pregunta 12": "Al evaporar agua se obtiene: &"
+                   "Hielo &"
+                   "Gas *&"
+                   "líquido *&"
+                   "Plasma",
+    "Pregunta 13": "¿Cuánto equivale π? &"
+                   "3.141592 *&"
+                   "3.149215 &"
+                   "3.144423 &"
+                   "3.144123 &",
 
-
+    "Pregunta 14": '¿Qué pesa más un kilo de plumas, uno de acero o uno de agua?'
+                   "Plumas"
+                   "Acero"
+                   "Pesan lo mismo"
+                   "Agua",
+    "Pregunta 15": "¿Quién fue Einstein? &"
+                   "Cienfíico *&"
+                   "Médico &"
+                   "Bombero &"
+                   "Creador de Frankenstein &"
 }
