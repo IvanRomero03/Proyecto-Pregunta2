@@ -1,5 +1,9 @@
 # Proyecto-Pregunta2
 
+#Para correr el programa:
+Al descargar el zip y descomprimirlo, solamente dar click al archivo **.bat**
+
+
 Proyecto para la clase de Pensamiento computacional para la ingeniería. 
 Consiste en un juego interactivo para enseñar sobre tres areas de enseñanza distintas,
 todo a través del toolkit de GUI nativo de Python llamado Tkinter
