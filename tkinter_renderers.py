@@ -4,11 +4,8 @@ import random
 from tkinter import ttk
 from lorddanlib import parse_string_to_list as p_str
 
-
-bgcol = "#ce03fc"
-btbgcol = "#fc8003"
-#btbgcol = "#6BC08E"
-#bgcol = "#7BD09E"
+btbgcol = "#6BC08E"
+bgcol = "#7BD09E"
 
 bord = False
 full = False
