@@ -9,6 +9,7 @@ bgcol = "#7BD09E"
 bord = False
 full = False
 it = 1
+correctas = 0
 
 
 def window_mode(win, key):
@@ -42,6 +43,8 @@ def do_check(win, pgrs, nextbut, botones, value):
         print("Unlock")
     if value:
         pgrs.bar.step(100/15)
+        global correctas
+        correctas += 1
     nextbut.config(command=lambda: pgrs.do_it(win), bg=btbgcol)
 
 
@@ -71,8 +74,7 @@ def frame_call(frame_index, win):
     elif frame_index == 3:
         do_config(win)
     elif frame_index == 4:
-        # do_lesgo(win)
-        do_menu(win)
+        do_lesgo(win)
 
 
 def game_upt(win, pgrs):
@@ -129,8 +131,29 @@ def game_upt(win, pgrs):
                 botones[i].button.grid(column=0, row=i + 2, columnspan=3)
 
 
-def do_game(win):
+def do_lesgo(win):
 
+    win.columnconfigure((0, 2), weight=1)
+    win.columnconfigure(1, weight=3)
+    win.rowconfigure((0, 2, 3), weight=1)
+    win.rowconfigure(1, weight=3)
+    if(correctas == 15):
+        namelbl = tk.Label(win, text='Puntuacion perfecta, \n ¡Felicidades!' + str(correctas),
+                           font=("Copperplate", 30), bg=bgcol)
+        namelbl.grid(row=1, column=1)
+    else:
+        namelbl = tk.Label(win, text='Puntuacion: ' + str(correctas),
+                           font=("Copperplate", 30), bg=bgcol)
+        namelbl.grid(row=1, column=1)
+
+    ret_but = tk.Button(win, text="Creditos", font=('Helvetica bold', 20),
+                        bg=btbgcol, command=lambda: frame_call(2, win))
+    ret_but.grid(row=2, column=1)
+
+
+def do_game(win):
+    global correctas
+    correctas = 0
     win.columnconfigure((0, 1, 2), weight=1)
     win.rowconfigure(0, weight=2)
     win.rowconfigure((1, 2, 3, 4, 5, 6), weight=1)
