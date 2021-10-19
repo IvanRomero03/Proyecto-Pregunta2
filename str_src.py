@@ -32,7 +32,7 @@ wd = {
     "Pregunta 6": "¿Quién es el escritor de HAMLET? &"
                   "Charles Dickens &"
                   "Miguel de Cervantes &"
-                  "Carlos Fuentes &" 
+                  "Carlos Fuentes &"
                   "William Shakespear *",
     "Pregunta 7": "dsds &"
                   "sdfjhbv &"
@@ -40,23 +40,23 @@ wd = {
                   "hbdf *&"
                   "uygasdd",
     "Pregunta 8": "¿Cuánto es (2)x(3+4-5)=?&"
-                   "6 &"
-                   "4 *&"
-                   "14 &"
-                   "7 ",
+    "6 &"
+    "4 *&"
+    "14 &"
+    "7 ",
     "Pregunta 9": "Sinónimo de: denotar&"
-                   "aceptar &"
-                   "indicar *&"
-                   "ocultar &"
-                   "rechazar ",
-    "Pregunta 10": "¿Cuánto da el producto de dos razones inversas? &"     
+    "aceptar &"
+    "indicar *&"
+    "ocultar &"
+    "rechazar ",
+    "Pregunta 10": "¿Cuánto da el producto de dos razones inversas? &"
                    "cero &"
                    "cinco &"
                    "dos &"
                    "uno *",
-    "Pregunta 11": "Las palabras con R se escriben cuando... &"       
+    "Pregunta 11": "Las palabras con R se escriben cuando... &"
                    "Al inicio de palabra aunque tenga mayor fuerza &"
-                   "Cuando esta en el interior de la palabra, siempre que vaya precedida de consonante, aunque suene fuerte &"
+                   "Interior de la palabra, siempre precedida de consonante &"
                    "En general el sonido fuerte se escribe con rr y el suave con r *&"
                    "En general el sonido fuerte se escribe con rr con r",
 

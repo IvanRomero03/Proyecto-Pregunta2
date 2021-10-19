@@ -6,7 +6,6 @@ from lorddanlib import parse_string_to_list as p_str
 
 btbgcol = "#6BC08E"
 bgcol = "#7BD09E"
-
 bord = False
 full = False
 it = 1
