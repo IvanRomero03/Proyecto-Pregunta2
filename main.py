@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter_renderers as tkrd
 
-#init y config del mainframe
+# init y config del mainframe
 mf = tk.Tk()
 mf.geometry("1000x600")
 mf.title("Pregunta2")
@@ -10,7 +10,7 @@ mf.config(bg=tkrd.bgcol)
 mf.columnconfigure((0, 1), weight=1)
 mf.rowconfigure((0, 1), weight=1)
 
-#main loop
+# main loop
 tkrd.frame_call(0, mf)
 mf.mainloop()
 

@@ -31,15 +31,19 @@ class Respuesta:
         self.button = tk.Button(win)
         self.value = True
 
-    def do_check(self, win, pgrs, nextbut):
-        if self.value:
-            self.button.config(bg="#00BF00")
+
+def do_check(win, pgrs, nextbut, botones, value):
+    for i in botones:
+        if i.value:
+            i.button.config(bg="#00BF00", command='')
             print("c_corr")
         else:
-            self.button.config(bg="#BF0000")
+            i.button.config(bg="#BF0000", command='')
             print("c_incorr")
         print("Unlock")
-        nextbut.config(command=lambda: pgrs.do_it(win), bg=btbgcol)
+    if value:
+        pgrs.bar.step(10)
+    nextbut.config(command=lambda: pgrs.do_it(win), bg=btbgcol)
 
 
 class Progreso:
@@ -92,21 +96,22 @@ def game_upt(win, pgrs):
                         fg="#FF0000", command=lambda: win.destroy(), bg=btbgcol)
     but_sal.grid(column=2, row=6)
 
+    botones = []
     boton1 = Respuesta(win)
     boton1.button.config(text=dict_src[0], font=(
-        'Helvetica bold', 20), bg=btbgcol, command=lambda: boton1.do_check(win, pgrs, but_next))
+        'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton1.value))
     boton2 = Respuesta(win)
     boton2.button.config(text=dict_src[1], font=(
-        'Helvetica bold', 20), bg=btbgcol, command=lambda: boton2.do_check(win, pgrs, but_next))
+        'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton2.value))
     boton3 = Respuesta(win)
     boton3.button.config(text=dict_src[2], font=(
-        'Helvetica bold', 20), bg=btbgcol, command=lambda: boton3.do_check(win, pgrs, but_next))
+        'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton3.value))
     boton4 = Respuesta(win)
     boton4.button.config(text=dict_src[3], font=(
-        'Helvetica bold', 20), bg=btbgcol, command=lambda: boton4.do_check(win, pgrs, but_next))
-    botones = (boton1, boton2, boton3, boton4)
+        'Helvetica bold', 20), bg=btbgcol, command=lambda: do_check(win, pgrs, but_next, botones, boton4.value))
+    botones = [boton1, boton2, boton3, boton4]
 
-    pgrs.bar.grid(column=0, row=1, columnspan = 3)
+    pgrs.bar.grid(column=0, row=1, columnspan=3)
 
     for i in range(4):
         if "*" in dict_src[i]:
