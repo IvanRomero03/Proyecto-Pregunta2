@@ -1,8 +1,11 @@
-# Proyecto-Pregunta2
+# **Proyecto-Pregunta2**
 
-#Para correr el programa:
+**Para correr el programa:**
+
+- Windows:
 Al descargar el zip y descomprimirlo, solamente dar click al archivo **.bat**
-
+- IOs y linux:
+Al descargar el zip y descomprimirlo, ejecutar el archivo main.py desde consola o desde el explorador de archivos.
 
 Proyecto para la clase de Pensamiento computacional para la ingeniería. 
 Consiste en un juego interactivo para enseñar sobre tres areas de enseñanza distintas,
